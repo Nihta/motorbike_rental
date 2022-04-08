@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Top menu -->
+  <menuitem name="Motorbike rental" id="invi_hospital.menu_root"
+            web_icon="motorbike_rental,static/description/icon.png"/>
+
+
+</odoo>
+
