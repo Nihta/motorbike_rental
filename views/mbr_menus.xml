@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <!-- Top menu -->
-  <menuitem name="Motorbike rental" id="invi_hospital.menu_root"
+  <!-- Menu root -->
+  <menuitem name="Motorbike rental" id="mbr_menu_root"
             web_icon="motorbike_rental,static/description/icon.png"/>
 
+  <!-- Submenu -->
+  <menuitem name="Motorcycle" id="mbr_motorcycle_menu" parent="mbr_menu_root"
+            action="mbr_motorcycle_action"/>
+  <menuitem name="Settings" id="mbr_motorcycle_settings_menu" parent="mbr_menu_root"/>
+
+  <!-- Actions -->
+  <menuitem name="Motorcycle model" id="mbr_motorcycle_model_menu_action"
+            parent="mbr_motorcycle_settings_menu"
+            action="mbr_motorcycle_model_action"/>
+  <menuitem name="Motorbike category" id="mbr_motorcycle_category_menu_action"
+            parent="mbr_motorcycle_settings_menu"
+            action="mbr_motorcycle_category_action"/>
 
 </odoo>
 

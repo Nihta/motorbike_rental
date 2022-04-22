@@ -3,11 +3,11 @@
 from odoo import fields, models, api
 
 
-class MbrMotorbike(models.Model):
+class MbrMotorcycleCategory(models.Model):
     # ---------------------------------------- Private Attributes ---------------------------------
 
-    _name = "mbr.motorbike"
-    _description = "Motorbike"
+    _name = "mbr.motorcycle.category"
+    _description = "Motorcycle category"
 
     # --------------------------------------- Fields Declaration ----------------------------------
 

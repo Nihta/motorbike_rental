@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="mbr_motorcycle_action" model="ir.actions.act_window">
+    <field name="name">Motorbike</field>
+    <field name="res_model">mbr.motorcycle</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

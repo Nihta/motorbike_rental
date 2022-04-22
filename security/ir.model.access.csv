@@ -1,1 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+motorbike_rental.access_mbr_motorcycle,access_mbr_motorcycle,motorbike_rental.model_mbr_motorcycle,base.group_user,1,1,1,1
+motorbike_rental.access_mbr_motorcycle_model,access_mbr_motorcycle_model,motorbike_rental.model_mbr_motorcycle_model,base.group_user,1,1,1,1
+motorbike_rental.access_mbr_motorcycle_category,access_mbr_motorcycle_category,motorbike_rental.model_mbr_motorcycle_category,base.group_user,1,1,1,1
