@@ -12,5 +12,5 @@ class MbrMotorcycleCategory(models.Model):
     # --------------------------------------- Fields Declaration ----------------------------------
 
     # Basic -------
-    name = fields.Char(string='Name', required=True)
-    description = fields.Char(string="Description")
+    name = fields.Char(string='Name', required=True, help="Category name")
+    description = fields.Text(string="Description")
