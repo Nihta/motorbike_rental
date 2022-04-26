@@ -13,6 +13,7 @@
     'application': True,
     'data': [
         'security/ir.model.access.csv',
+        'data/motorcycle_sequence_data.xml',
         'views/views.xml',
         'views/mbr_motorcycle_model_views.xml',
         'views/mbr_motorcycle_category_views.xml',

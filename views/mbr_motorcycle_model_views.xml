@@ -4,5 +4,41 @@
     <field name="name">Motorcycle model</field>
     <field name="res_model">mbr.motorcycle.model</field>
     <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        No data
+      </p>
+    </field>
+  </record>
+
+  <record id="mbr_motorcycle_model_view_form" model="ir.ui.view">
+    <field name="name">mbr.motorcycle.model.form</field>
+    <field name="model">mbr.motorcycle.model</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="year"/>
+            <field name="category_id"/>
+          </group>
+          <notebook>
+            <page string="General">
+              <group>
+                <field name="cc"/>
+                <field name="description"/>
+              </group>
+            </page>
+            <page string="Rent cost">
+              <group>
+                <field name="rent_cost_default"/>
+                <field name="rent_cost_default_day"/>
+                <field name="rent_cost_default_week"/>
+              </group>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
   </record>
 </odoo>
