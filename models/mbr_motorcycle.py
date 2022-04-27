@@ -19,10 +19,11 @@ class MbrMotorcycle(models.Model):
     current_price = fields.Float(string="Current Price")
     image = fields.Binary(string="Image")
 
+    # Relational -------
     mode_id = fields.Many2one(comodel_name="mbr.motorcycle.model", string="Mode")
+    price_ids = fields.One2many("mbr.motorcycle.price", "motorcycle_id", string="Rental pricing")
 
     @api.model
     def create(self, vals):
         vals['name'] = self.env['ir.sequence'].next_by_code('mbr.motorcycle')
-        result = super(MbrMotorcycle, self).create(vals)
-        return result
+        return super(MbrMotorcycle, self).create(vals)

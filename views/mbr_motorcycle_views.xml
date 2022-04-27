@@ -25,12 +25,12 @@
                 <field name="year"/>
                 <field name="current_price"/>
                 <field name="mode_id"/>
+                <field name="description"/>
+
               </group>
             </page>
-            <page string="Description">
-              <group>
-                <field name="description"/>
-              </group>
+            <page string="Rental pricing">
+              <field name="price_ids"/>
             </page>
           </notebook>
         </sheet>

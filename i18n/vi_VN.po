@@ -1,0 +1,255 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* motorbike_rental
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-27 01:28+0000\n"
+"PO-Revision-Date: 2022-04-27 08:34+0700\n"
+"Last-Translator: Nihta\n"
+"Language-Team: \n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__active
+msgid "Active"
+msgstr "Hoạt động"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__cc
+msgid "CC"
+msgstr ""
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__category_id
+msgid "Category"
+msgstr "Tên dòng xe phải là duy nhất"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,help:motorbike_rental.field_mbr_motorcycle_category__name
+msgid "Category name"
+msgstr "Tên dòng xe"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__create_uid
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_category__create_uid
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__create_uid
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__create_date
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_category__create_date
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__create_date
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price__create_date
+msgid "Created on"
+msgstr "Được tạo lúc"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price__currency_id
+msgid "Currency"
+msgstr "Đơn vị tiền tệ"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__current_price
+msgid "Current Price"
+msgstr "Giá hiện tại"
+
+#. module: motorbike_rental
+#: model:ir.model.fields.selection,name:motorbike_rental.selection__mbr_motorcycle_price__unit__day
+msgid "Day(s)"
+msgstr "Ngày"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__description
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_category__description
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__description
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price__description
+#: model_terms:ir.ui.view,arch_db:motorbike_rental.mbr_motorcycle_view_form
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__display_name
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_category__display_name
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__display_name
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price__duration
+msgid "Duration"
+msgstr "Khoảng thời gian"
+
+#. module: motorbike_rental
+#: model_terms:ir.ui.view,arch_db:motorbike_rental.mbr_motorcycle_model_view_form
+#: model_terms:ir.ui.view,arch_db:motorbike_rental.mbr_motorcycle_view_form
+msgid "General"
+msgstr "Thông tin chung"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__id
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_category__id
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__id
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price__id
+msgid "ID"
+msgstr "ID"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__image
+msgid "Image"
+msgstr "Hình ảnh"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle____last_update
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_category____last_update
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model____last_update
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price____last_update
+msgid "Last Modified on"
+msgstr "Chỉnh sửa lần cuối vào"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__write_uid
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_category__write_uid
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__write_uid
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__write_date
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_category__write_date
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__write_date
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối lúc"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__mode_id
+msgid "Mode"
+msgstr "Dòng xe"
+
+#. module: motorbike_rental
+#: model:ir.model.fields.selection,name:motorbike_rental.selection__mbr_motorcycle_price__unit__month
+msgid "Month(s)"
+msgstr "Tháng"
+
+#. module: motorbike_rental
+#: model:ir.actions.act_window,name:motorbike_rental.mbr_motorcycle_action
+msgid "Motorbike"
+msgstr ""
+
+#. module: motorbike_rental
+#: model:ir.ui.menu,name:motorbike_rental.mbr_motorcycle_category_menu_action
+msgid "Motorbike category"
+msgstr "Dòng xe"
+
+#. module: motorbike_rental
+#: model:ir.ui.menu,name:motorbike_rental.mbr_menu_root
+msgid "Motorbike rental"
+msgstr ""
+
+#. module: motorbike_rental
+#: model:ir.model,name:motorbike_rental.model_mbr_motorcycle
+#: model:ir.model,name:motorbike_rental.model_mbr_motorcycle_price
+#: model:ir.ui.menu,name:motorbike_rental.mbr_motorcycle_menu
+msgid "Motorcycle"
+msgstr "Xe máy"
+
+#. module: motorbike_rental
+#: model:ir.actions.act_window,name:motorbike_rental.mbr_motorcycle_category_action
+#: model:ir.model,name:motorbike_rental.model_mbr_motorcycle_category
+msgid "Motorcycle category"
+msgstr "Dòng xe"
+
+#. module: motorbike_rental
+#: model:ir.actions.act_window,name:motorbike_rental.mbr_motorcycle_model_action
+#: model:ir.model,name:motorbike_rental.model_mbr_motorcycle_model
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price__motorcycle_id
+#: model:ir.ui.menu,name:motorbike_rental.mbr_motorcycle_model_menu_action
+msgid "Motorcycle model"
+msgstr "Mẫu xe"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__name
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_category__name
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__name
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: motorbike_rental
+#: model_terms:ir.actions.act_window,help:motorbike_rental.mbr_motorcycle_model_action
+msgid "No data"
+msgstr "Không có dữ liệu"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price__price
+msgid "Price"
+msgstr "Giá"
+
+#. module: motorbike_rental
+#: model_terms:ir.ui.view,arch_db:motorbike_rental.mbr_motorcycle_model_view_form
+msgid "Rent cost"
+msgstr "Giá thuê"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__rent_cost_default_day
+msgid "Rent cost default (day)"
+msgstr ""
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__rent_cost_default
+msgid "Rent cost default (hour)"
+msgstr ""
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__rent_cost_default_week
+msgid "Rent cost default (week)"
+msgstr ""
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__price_ids
+#: model_terms:ir.ui.view,arch_db:motorbike_rental.mbr_motorcycle_view_form
+msgid "Rental pricing"
+msgstr "Giá cho thuê"
+
+#. module: motorbike_rental
+#: model:ir.ui.menu,name:motorbike_rental.mbr_motorcycle_settings_menu
+msgid "Settings"
+msgstr "Cài đặt"
+
+#. module: motorbike_rental
+#: model:ir.model.constraint,message:motorbike_rental.constraint_mbr_motorcycle_model_name_uniq
+msgid "The name of the motorcycle model must be unique!"
+msgstr "Tên bệnh lý phải là duy nhất!"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_price__unit
+msgid "Unit"
+msgstr "Đơn vị"
+
+#. module: motorbike_rental
+#: model:ir.model.fields.selection,name:motorbike_rental.selection__mbr_motorcycle_price__unit__week
+msgid "Week(s)"
+msgstr "Tuần"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle__year
+#: model:ir.model.fields,field_description:motorbike_rental.field_mbr_motorcycle_model__year
+msgid "Year"
+msgstr "Năm"
+
+#. module: motorbike_rental
+#: model:ir.model.fields,help:motorbike_rental.field_mbr_motorcycle__year
+msgid "Year of manufacture"
+msgstr "Năm sản xuất"
