@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Motorbike rental",
-    'summary': "Motorbike rental",
+    'name': "Motorcycle rental",
+    'summary': "Motorcycle rental",
     'description': """
-    Motorbike rental
+    Motorcycle rental
     """,
     'author': "Nihta",
     'license': 'OPL-1',
@@ -18,6 +18,7 @@
         'views/mbr_motorcycle_model_views.xml',
         'views/mbr_motorcycle_category_views.xml',
         'views/mbr_motorcycle_views.xml',
+        'views/mbr_motorcycle_price_views.xml',
         'views/mbr_menus.xml',
     ],
     'demo': [],

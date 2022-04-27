@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="mbr_motorcycle_price_view_tree" model="ir.ui.view">
+    <field name="name">mbr.motorcycle.price.tree</field>
+    <field name="model">mbr.motorcycle.price</field>
+    <field name="arch" type="xml">
+      <tree string="Rental pricing" editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="duration"/>
+        <field name="unit"/>
+        <field name="price"/>
+        <!--        <field name="currency_id"/>-->
+        <field name="description"/>
+      </tree>
+    </field>
+  </record>
+</odoo>

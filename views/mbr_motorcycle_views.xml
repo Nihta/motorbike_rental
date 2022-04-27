@@ -26,7 +26,6 @@
                 <field name="current_price"/>
                 <field name="mode_id"/>
                 <field name="description"/>
-
               </group>
             </page>
             <page string="Rental pricing">
