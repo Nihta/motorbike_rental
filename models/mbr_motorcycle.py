@@ -16,12 +16,17 @@ class MbrMotorcycle(models.Model):
     description = fields.Text(string="Description")
     year = fields.Integer(string="Year", help="Year of manufacture")
     active = fields.Boolean(string="Active", default=True)
-    current_price = fields.Float(string="Current Price")
     image = fields.Binary(string="Image")
+    license_plate = fields.Char(string="License plate", help="License plate of motorcycle")
+    extra_hour_price = fields.Monetary(string="Extra hour price", help="Extra hour price")
+    extra_day_price = fields.Monetary(string="Extra day price", help="Extra day price")
 
     # Relational -------
     mode_id = fields.Many2one(comodel_name="mbr.motorcycle.model", string="Mode")
     price_ids = fields.One2many("mbr.motorcycle.price", "motorcycle_id", string="Rental pricing")
+    currency_id = fields.Many2one(
+        comodel_name='res.currency', string='Currency', required=True,
+        default=lambda self: self.env.user.company_id.currency_id)
 
     @api.model
     def create(self, vals):
