@@ -43,13 +43,15 @@ class MbrMotorcycle(models.Model):
     def _check_price(self):
         # TODO: Work only when same currency
         # Check if price is increasing
-        price_duration_list = self.search([
-            ('motorcycle_id', '=', self.motorcycle_id.id),
-        ]).mapped(lambda r: (r.duration, r.price))
-        price_duration_list = sorted(price_duration_list, key=lambda x: x[0])
-        for i in range(len(price_duration_list) - 1):
-            if price_duration_list[i][1] >= price_duration_list[i + 1][1]:
-                raise ValidationError("Price must be increasing by duration!")
+        for unit in ('day', 'week', 'month'):
+            price_duration_list = self.search([
+                ('motorcycle_id', '=', self.motorcycle_id.id),
+                ('unit', '=', unit),
+            ]).mapped(lambda r: (r.duration, r.price))
+            price_duration_list = sorted(price_duration_list, key=lambda x: x[0])
+            for i in range(len(price_duration_list) - 1):
+                if price_duration_list[i][1] >= price_duration_list[i + 1][1]:
+                    raise ValidationError(f"Price by unit must be increasing by duration!")
 
         # Price must be greater than 0
         for record in self:
