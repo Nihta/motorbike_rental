@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import fields, models, api
+from odoo.exceptions import ValidationError
 
 
 class MbrMotorcycleModel(models.Model):
@@ -18,9 +19,24 @@ class MbrMotorcycleModel(models.Model):
     # Basic -------
     name = fields.Char(string='Name', required=True)
     year = fields.Integer(string="Year")
-    category_id = fields.Many2one('mbr.motorcycle.category', string='Category')
     description = fields.Text(string="Description")
     cc = fields.Integer(string="CC")
-    rent_cost_default = fields.Float(string="Rent cost default (hour)")
-    rent_cost_default_day = fields.Float(string="Rent cost default (day)")
-    rent_cost_default_week = fields.Float(string="Rent cost default (week)")
+    rent_cost_df_day = fields.Monetary(string="Rent cost default (day)")
+    rent_cost_df_week = fields.Monetary(string="Rent cost default (week)")
+    rent_cost_df_month = fields.Monetary(string="Rent cost default (month)")
+    extra_day_df_price = fields.Monetary(string="Extra price default (day)")
+
+    # Relational -------
+    category_id = fields.Many2one('mbr.motorcycle.category', string='Category')
+    currency_id = fields.Many2one(
+        comodel_name='res.currency', string='Currency', required=True,
+        default=lambda self: self.env.user.company_id.currency_id)
+
+    @api.constrains("rent_cost_df_day", "rent_cost_df_week", "rent_cost_df_month")
+    def _check_rent_cost(self):
+        for record in self:
+            rl = [record.rent_cost_df_day, record.rent_cost_df_week, record.rent_cost_df_month]
+            if rl[0] < 0 or rl[1] < 0 or rl[2] < 0:
+                raise ValidationError("The rent cost must be greater than 0!")
+            if rl[0] > rl[1] or rl[1] > rl[2] or rl[0] > rl[2]:
+                raise ValidationError("The rent cost must be in ascending order!")

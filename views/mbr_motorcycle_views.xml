@@ -26,16 +26,11 @@
                 <field name="year"/>
                 <field name="license_plate"/>
                 <field name="description"/>
+                <field name="extra_day_price" widget="monetary"/>
               </group>
             </page>
             <page string="Rental pricing">
               <field name="price_ids"/>
-            </page>
-            <page string="Extra pricing">
-              <group>
-                <field name="extra_hour_price" widget="monetary"/>
-                <field name="extra_day_price" widget="monetary"/>
-              </group>
             </page>
           </notebook>
         </sheet>

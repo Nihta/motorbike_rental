@@ -18,11 +18,10 @@ class MbrMotorcycle(models.Model):
     active = fields.Boolean(string="Active", default=True)
     image = fields.Binary(string="Image")
     license_plate = fields.Char(string="License plate", help="License plate of motorcycle")
-    extra_hour_price = fields.Monetary(string="Extra hour price", help="Extra hour price")
-    extra_day_price = fields.Monetary(string="Extra day price", help="Extra day price")
+    extra_day_price = fields.Monetary(string="Extra day price")
 
     # Relational -------
-    mode_id = fields.Many2one(comodel_name="mbr.motorcycle.model", string="Mode")
+    mode_id = fields.Many2one(comodel_name="mbr.motorcycle.model", string="Mode", required=True)
     price_ids = fields.One2many("mbr.motorcycle.price", "motorcycle_id", string="Rental pricing")
     currency_id = fields.Many2one(
         comodel_name='res.currency', string='Currency', required=True,

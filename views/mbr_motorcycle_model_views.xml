@@ -19,21 +19,22 @@
         <sheet>
           <group>
             <field name="name"/>
-            <field name="year"/>
             <field name="category_id"/>
           </group>
           <notebook>
             <page string="General">
               <group>
+                <field name="year"/>
                 <field name="cc"/>
                 <field name="description"/>
               </group>
             </page>
-            <page string="Rent cost">
+            <page string="Rent cost default">
               <group>
-                <field name="rent_cost_default"/>
-                <field name="rent_cost_default_day"/>
-                <field name="rent_cost_default_week"/>
+                <field name="rent_cost_df_day"/>
+                <field name="rent_cost_df_week"/>
+                <field name="rent_cost_df_month"/>
+                <field name="extra_day_df_price"/>
               </group>
             </page>
           </notebook>
