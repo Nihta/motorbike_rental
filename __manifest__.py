@@ -19,6 +19,7 @@
         'views/mbr_motorcycle_category_views.xml',
         'views/mbr_motorcycle_views.xml',
         'views/mbr_motorcycle_price_views.xml',
+        'views/mbr_motorcycle_brand_views.xml',
         'views/mbr_menus.xml',
     ],
     'demo': [],

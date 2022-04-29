@@ -26,6 +26,7 @@ class MbrMotorcycleModel(models.Model):
     extra_day_df_price = fields.Monetary(string="Extra price default (day)")
 
     # Relational -------
+    brand_id = fields.Many2one(comodel_name="mbr.motorcycle.brand", string="Brand")
     price_ids = fields.One2many(
         comodel_name="mbr.motorcycle.price",
         inverse_name="motorcycle_model_id",

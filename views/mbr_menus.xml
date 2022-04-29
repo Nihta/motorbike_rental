@@ -16,6 +16,9 @@
   <menuitem name="Motorbike category" id="mbr_motorcycle_category_menu_action"
             parent="mbr_motorcycle_settings_menu"
             action="mbr_motorcycle_category_action"/>
+  <menuitem name="Motorbike brand" id="mbr_motorcycle_brand_menu_action"
+            parent="mbr_motorcycle_settings_menu"
+            action="mbr_motorcycle_brand_action"/>
 
 </odoo>
 

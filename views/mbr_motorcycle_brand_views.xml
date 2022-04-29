@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="mbr_motorcycle_brand_action" model="ir.actions.act_window">
+    <field name="name">Motorcycle band</field>
+    <field name="res_model">mbr.motorcycle.brand</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        No motorcycle brand yet.
+      </p>
+    </field>
+  </record>
+
+  <record id="mbr_motorcycle_brand_view_tree" model="ir.ui.view">
+    <field name="name">mbr.motorcycle.brand.tree</field>
+    <field name="model">mbr.motorcycle.brand</field>
+    <field name="arch" type="xml">
+      <tree string="Motorcycle brand">
+        <field name="name"/>
+        <field name="country_id"/>
+        <field name="description"/>
+      </tree>
+    </field>
+  </record>
+</odoo>
