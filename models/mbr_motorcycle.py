@@ -18,15 +18,19 @@ class MbrMotorcycle(models.Model):
     active = fields.Boolean(string="Active", default=True)
     image = fields.Binary(string="Image")
     license_plate = fields.Char(string="License plate", help="License plate of motorcycle")
-    extra_day_price = fields.Monetary(string="Extra day price")
+    discount = fields.Float(string="Discount", default=0.0)
+    chassis_number = fields.Char(string="Chassis number", help="Chassis number of motorcycle")
 
     # Relational -------
     mode_id = fields.Many2one(comodel_name="mbr.motorcycle.model", string="Mode", required=True)
-    price_ids = fields.One2many("mbr.motorcycle.price", "motorcycle_id", string="Rental pricing")
     currency_id = fields.Many2one(
-        comodel_name='res.currency', string='Currency', required=True,
-        default=lambda self: self.env.user.company_id.currency_id)
+        comodel_name='res.currency',
+        default=lambda self: self.env.user.company_id.currency_id,
+        string='Currency',
+        required=True
+    )
 
+    # ------------------------------------------ CRUD Methods -------------------------------------
     @api.model
     def create(self, vals):
         vals['name'] = self.env['ir.sequence'].next_by_code('mbr.motorcycle')

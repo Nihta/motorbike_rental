@@ -25,12 +25,10 @@
                 <field name="mode_id"/>
                 <field name="year"/>
                 <field name="license_plate"/>
+                <field name="chassis_number"/>
+                <field name="discount" widget="percentage"/>
                 <field name="description"/>
-                <field name="extra_day_price" widget="monetary"/>
               </group>
-            </page>
-            <page string="Rental pricing">
-              <field name="price_ids"/>
             </page>
           </notebook>
         </sheet>

@@ -11,7 +11,7 @@ class MbrMotorcycle(models.Model):
     _description = "Motorcycle"
     _order = "duration, unit"
     _sql_constraints = [("motorcycle_id_duration_unit_unique",
-                         "UNIQUE(motorcycle_id, duration, unit)",
+                         "UNIQUE(motorcycle_model_id, duration, unit)",
                          "Duration and Unit must be unique!"), ]
 
     # --------------------------------------- Fields Declaration ----------------------------------
@@ -21,7 +21,7 @@ class MbrMotorcycle(models.Model):
     price = fields.Monetary(string='Price', required=True)
     unit = fields.Selection(
         [('day', 'Day(s)'), ('week', 'Week(s)'), ('month', 'Month(s)')],
-        string='Unit', deafult='day', required=True
+        string='Unit', default='day', required=True
     )
     description = fields.Text(string='Description')
     sequence = fields.Integer(string='Sequence', default=10)
@@ -30,7 +30,8 @@ class MbrMotorcycle(models.Model):
     currency_id = fields.Many2one(
         comodel_name='res.currency', string='Currency', required=True,
         default=lambda self: self.env.user.company_id.currency_id)
-    motorcycle_id = fields.Many2one("mbr.motorcycle", string="Motorcycle model", required=True)
+    motorcycle_model_id = fields.Many2one("mbr.motorcycle.model", string="Motorcycle model",
+                                          required=True)
 
     # ----------------------------------- Constrains and Onchanges --------------------------------
     @api.constrains('unit', 'duration')
@@ -47,17 +48,15 @@ class MbrMotorcycle(models.Model):
     def _check_price(self):
         # TODO: Work only when same currency
         # TODO: Price 1 week need to be greater than price 1 day
-        # TODO:
-
+        # TODO: Price 1 month need to be greater than price 1 week
         # Price must be greater than 0
         for record in self:
             if record.price <= 0:
                 raise ValidationError("Price must be greater than 0!")
-        # Price 1 month need to be greater than price 1 week
         # Price must be increasing
         for unit in ('day', 'week', 'month'):
             price_duration_list = self.search([
-                ('motorcycle_id', '=', self.motorcycle_id.id),
+                ('motorcycle_model_id', '=', self.motorcycle_model_id.id),
                 ('unit', '=', unit),
             ]).mapped(lambda r: (r.duration, r.price))
             price_duration_list = sorted(price_duration_list, key=lambda x: x[0])

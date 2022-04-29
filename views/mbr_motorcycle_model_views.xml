@@ -29,13 +29,8 @@
                 <field name="description"/>
               </group>
             </page>
-            <page string="Rent cost default">
-              <group>
-                <field name="rent_cost_df_day"/>
-                <field name="rent_cost_df_week"/>
-                <field name="rent_cost_df_month"/>
-                <field name="extra_day_df_price"/>
-              </group>
+            <page string="Rental pricing">
+              <field name="price_ids"/>
             </page>
           </notebook>
         </sheet>

@@ -9,7 +9,6 @@
         <field name="duration"/>
         <field name="unit"/>
         <field name="price"/>
-        <!--        <field name="currency_id"/>-->
         <field name="description"/>
       </tree>
     </field>

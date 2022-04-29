@@ -8,6 +8,9 @@ class MbrMotorcycleCategory(models.Model):
 
     _name = "mbr.motorcycle.category"
     _description = "Motorcycle category"
+    _sql_constraints = [
+        ('name_uniq', 'unique(name)', 'The name of the motorcycle category must be unique!')
+    ]
 
     # --------------------------------------- Fields Declaration ----------------------------------
 
