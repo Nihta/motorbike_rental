@@ -12,6 +12,22 @@
     </field>
   </record>
 
+  <record id="mbr_motorcycle_brand_view_form" model="ir.ui.view">
+    <field name="name">mbr.motorcycle.brand.form</field>
+    <field name="model">mbr.motorcycle.brand</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="country_id"/>
+            <field name="description"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
   <record id="mbr_motorcycle_brand_view_tree" model="ir.ui.view">
     <field name="name">mbr.motorcycle.brand.tree</field>
     <field name="model">mbr.motorcycle.brand</field>

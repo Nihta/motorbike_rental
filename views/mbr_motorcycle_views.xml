@@ -11,6 +11,17 @@
     </field>
   </record>
 
+  <record id="mbr_motorcycle_view_tree" model="ir.ui.view">
+    <field name="name">mbr.motorcycle.tree</field>
+    <field name="model">mbr.motorcycle</field>
+    <field name="arch" type="xml">
+      <tree string="Motorcycle">
+        <field name="name"/>
+        <field name="mode_id"/>
+      </tree>
+    </field>
+  </record>
+
   <record id="mbr_motorcycle_view_form" model="ir.ui.view">
     <field name="name">mbr.motorcycle.form</field>
     <field name="model">mbr.motorcycle</field>
