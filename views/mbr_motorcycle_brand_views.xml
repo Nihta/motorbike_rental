@@ -4,7 +4,7 @@
   <record id="mbr_motorcycle_brand_action" model="ir.actions.act_window">
     <field name="name">Motorcycle band</field>
     <field name="res_model">mbr.motorcycle.brand</field>
-    <field name="view_mode">tree,form</field>
+    <field name="view_mode">tree,kanban,form</field>
     <field name="help" type="html">
       <p class="o_view_nocontent_smiling_face">
         No motorcycle brand yet.
@@ -21,6 +21,24 @@
         <field name="country_id"/>
         <field name="description"/>
       </tree>
+    </field>
+  </record>
+
+  <record id="mbr_motorcycle_brand_kanban" model="ir.ui.view">
+    <field name="name">mbr.motorcycle.brand.kanban</field>
+    <field name="model">mbr.motorcycle.brand</field>
+    <field name="arch" type="xml">
+      <kanban>
+        <templates>
+          <t t-name="kanban-box">
+            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+              <div class="o_kanban_card_content">
+                <field name="name" modifiers="{'required': true}"/>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
     </field>
   </record>
 </odoo>
