@@ -12,14 +12,14 @@ class MbrMotorcycle(models.Model):
     # --------------------------------------- Fields Declaration ----------------------------------
 
     # Basic -------
-    name = fields.Char(string='Name', readonly=True)
+    name = fields.Char(string='Motorcycle ID', readonly=True)
     description = fields.Text(string="Description")
     year = fields.Integer(string="Year", help="Year of manufacture")
     active = fields.Boolean(string="Active", default=True)
     image = fields.Binary(string="Image")
-    license_plate = fields.Char(string="License plate", help="License plate of motorcycle")
+    license_plate = fields.Char(string="License plate", required=True)
     discount = fields.Float(string="Discount", default=0.0)
-    chassis_number = fields.Char(string="Chassis number", help="Chassis number of motorcycle")
+    chassis_number = fields.Char(string="Chassis number", required=True)
 
     # Relational -------
     mode_id = fields.Many2one(comodel_name="mbr.motorcycle.model", string="Mode", required=True)

@@ -10,7 +10,7 @@ class MbrMotorcycle(models.Model):
     _name = "mbr.motorcycle.price"
     _description = "Motorcycle"
     _order = "duration, unit"
-    _sql_constraints = [("motorcycle_id_duration_unit_unique",
+    _sql_constraints = [("mbr_motorcycle_id_duration_unit_unique",
                          "UNIQUE(motorcycle_model_id, duration, unit)",
                          "Duration and Unit must be unique!"), ]
 

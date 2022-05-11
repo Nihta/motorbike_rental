@@ -18,6 +18,7 @@
       <tree string="Motorcycle">
         <field name="name"/>
         <field name="mode_id"/>
+        <field name="license_plate"/>
       </tree>
     </field>
   </record>

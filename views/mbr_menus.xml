@@ -6,8 +6,13 @@
 
   <!-- Submenu -->
   <menuitem name="Motorcycle" id="mbr_motorcycle_menu" parent="mbr_menu_root"
-            action="mbr_motorcycle_action"/>
-  <menuitem name="Settings" id="mbr_motorcycle_settings_menu" parent="mbr_menu_root"/>
+            action="mbr_motorcycle_action" sequence="10"/>
+  <menuitem name="Customers" id="mbr_customer_menu" parent="mbr_menu_root"
+            action="mbr_customer_action" sequence="20"/>
+  <menuitem name="Rentals" id="mbr_rental_menu" parent="mbr_menu_root"
+            action="mbr_rental_action" sequence="30"/>
+  <menuitem name="Settings" id="mbr_motorcycle_settings_menu" parent="mbr_menu_root" sequence="90"/>
+
 
   <!-- Actions -->
   <menuitem name="Motorcycle model" id="mbr_motorcycle_model_menu_action"
