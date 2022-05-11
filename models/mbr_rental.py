@@ -18,6 +18,7 @@ class MbrRental(models.Model):
 
     # Basic -------
     name = fields.Char(string='Rental ID', required=True)
+    extra_info = fields.Text(string='Extra Info')
     discount = fields.Float(string='Discount', default=0.0)
     date_start = fields.Date(string='Start Date')
     date_end = fields.Date(string='End Date')
@@ -40,18 +41,37 @@ class MbrRental(models.Model):
     def _group_expand_states(self, states, domain, order):
         return [key for key, val in type(self).state.selection]
 
+    # Relations -------
     customer_id = fields.Many2one('mbr.customer', string='Customer')
-    motorcycle_id = fields.Many2one('mbr.motorcycle', string='Motorcycle')
-
+    model_id = fields.Many2one('mbr.motorcycle.model', string='Model')
+    motorcycle_id = fields.Many2one(
+        comodel_name='mbr.motorcycle',
+        string='Motorcycle',
+    )
+    
     # def _compute_total_amount(self):
     #     for record in self:
     #         record.total_amount = record.motorcycle_id.price * (1 - record.discount / 100)
     #
 
     # ----------------------------------- Constrains and Onchanges --------------------------------
+
     @api.constrains('date_start', 'date_end')
     def _constrain_data_range(self):
         for record in self:
             if record.date_start and record.date_end:
                 if record.date_start > record.date_end:
                     raise models.ValidationError("Start date must be less than end date")
+
+    @api.onchange('model_id', 'date_start', 'date_end')
+    def _onchange_rewrite_domain_motor_id(self):
+        if self.model_id and self.date_start and self.date_end:
+            self.motorcycle_id = False
+            moto_active_ids = self.env['mbr.motorcycle'].search([
+                ('active', '=', True),
+                ('mode_id', '=', self.model_id.id),
+            ]).mapped('id')
+            # TODO: find motorcycle available in the date range
+            return {
+                'domain': {'motorcycle_id': [('id', 'in', moto_active_ids)]},
+            }
