@@ -47,8 +47,9 @@ class MbrRental(models.Model):
     motorcycle_id = fields.Many2one(
         comodel_name='mbr.motorcycle',
         string='Motorcycle',
+        domain="[('mode_id', '=', -1)]",
     )
-    
+
     # def _compute_total_amount(self):
     #     for record in self:
     #         record.total_amount = record.motorcycle_id.price * (1 - record.discount / 100)
@@ -61,17 +62,21 @@ class MbrRental(models.Model):
         for record in self:
             if record.date_start and record.date_end:
                 if record.date_start > record.date_end:
-                    raise models.ValidationError("Start date must be less than end date")
+                    raise models.ValidationError("Start date must be less than end date!")
 
     @api.onchange('model_id', 'date_start', 'date_end')
     def _onchange_rewrite_domain_motor_id(self):
-        if self.model_id and self.date_start and self.date_end:
-            self.motorcycle_id = False
-            moto_active_ids = self.env['mbr.motorcycle'].search([
-                ('active', '=', True),
-                ('mode_id', '=', self.model_id.id),
-            ]).mapped('id')
-            # TODO: find motorcycle available in the date range
-            return {
-                'domain': {'motorcycle_id': [('id', 'in', moto_active_ids)]},
-            }
+        """
+        TODO: Try use https://github.com/OCA/web/tree/15.0/web_domain_field
+        """
+        for rental in self:
+            if rental.model_id and rental.date_start and rental.date_end:
+                rental.motorcycle_id = False
+                moto_active_ids = self.env['mbr.motorcycle'].search([
+                    ('active', '=', True),
+                    ('mode_id', '=', rental.model_id.id),
+                ]).mapped('id')
+                # TODO: find motorcycle available in the date range
+                return {
+                    'domain': {'motorcycle_id': [('id', 'in', moto_active_ids)]},
+                }

@@ -20,6 +20,8 @@ class MbrMotorcycleModel(models.Model):
     year = fields.Integer(string="Year")
     description = fields.Text(string="Description")
     cc = fields.Integer(string="CC")
+
+    # TODO: Now not used
     rent_cost_df_day = fields.Monetary(string="Rent cost default (day)")
     rent_cost_df_week = fields.Monetary(string="Rent cost default (week)")
     rent_cost_df_month = fields.Monetary(string="Rent cost default (month)")

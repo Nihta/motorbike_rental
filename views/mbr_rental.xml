@@ -12,6 +12,21 @@
     </field>
   </record>
 
+
+  <record id="mbr_rental_view_tree" model="ir.ui.view">
+    <field name="name">mbr.rental.tree</field>
+    <field name="model">mbr.rental</field>
+    <field name="arch" type="xml">
+      <tree string="Rentals">
+        <field name="name"/>
+        <field name="customer_id"/>
+        <field name="motorcycle_id"/>
+        <field name="date_start"/>
+        <field name="date_end"/>
+      </tree>
+    </field>
+  </record>
+
   <record id="mbr_rental_view_kanban" model="ir.ui.view">
     <field name="name">mbr.rental.kanban</field>
     <field name="model">mbr.rental</field>
@@ -53,7 +68,9 @@
             </div>
             <field name="model_id"/>
             <field name="motorcycle_id"
-                   attrs="{'invisible': [('model_id', '=', False),'|',('date_start', '=', False),'|',('date_end', '=', False)]}"/>
+                   options="{'no_create': True, 'no_create_edit':True}"
+                   attrs="{'invisible': [('model_id', '=', False),'|',('date_start', '=',
+            False),'|',('date_end', '=', False)]}"/>
             <field name="customer_id"/>
             <field name="discount"/>
             <field name="extra_info"/>

@@ -47,6 +47,9 @@
                 <field name="description"/>
               </group>
             </page>
+            <page string="Rentals">
+              <field name="rental_ids" readonly="1"/>
+            </page>
           </notebook>
         </sheet>
       </form>

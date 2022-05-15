@@ -11,19 +11,25 @@
             action="mbr_customer_action" sequence="20"/>
   <menuitem name="Rentals" id="mbr_rental_menu" parent="mbr_menu_root"
             action="mbr_rental_action" sequence="30"/>
-  <menuitem name="Settings" id="mbr_motorcycle_settings_menu" parent="mbr_menu_root" sequence="90"/>
+  <menuitem name="Configs" id="mbr_motorcycle_configs_menu" parent="mbr_menu_root" sequence="90"/>
 
 
   <!-- Actions -->
-  <menuitem name="Motorcycle model" id="mbr_motorcycle_model_menu_action"
-            parent="mbr_motorcycle_settings_menu"
-            action="mbr_motorcycle_model_action"/>
-  <menuitem name="Motorbike category" id="mbr_motorcycle_category_menu_action"
-            parent="mbr_motorcycle_settings_menu"
-            action="mbr_motorcycle_category_action"/>
-  <menuitem name="Motorbike brand" id="mbr_motorcycle_brand_menu_action"
-            parent="mbr_motorcycle_settings_menu"
-            action="mbr_motorcycle_brand_action"/>
+  <menuitem name="Motorcycle" id="mbr_menu_motorcycle" parent="mbr_motorcycle_configs_menu">
+    <menuitem name="Motorcycle model" id="mbr_motorcycle_model_menu_action"
+              action="mbr_motorcycle_model_action"/>
+    <menuitem name="Motorbike category" id="mbr_motorcycle_category_menu_action"
+              action="mbr_motorcycle_category_action"/>
+    <menuitem name="Motorbike brand" id="mbr_motorcycle_brand_menu_action"
+              action="mbr_motorcycle_brand_action"/>
+  </menuitem>
+
+  <menuitem id="mbr_menu_localisation" name="Localization" parent="mbr_motorcycle_configs_menu">
+    <menuitem name="Country" id="mbr_motorcycle_country_menu_action" sequence="1"
+              action="base.action_country"/>
+    <menuitem name="State" id="mbr_motorcycle_country_state_menu_action" sequence="2"
+              action="base.action_country_state"/>
+  </menuitem>
 
 </odoo>
 

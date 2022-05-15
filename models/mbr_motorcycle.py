@@ -23,12 +23,15 @@ class MbrMotorcycle(models.Model):
 
     # Relational -------
     mode_id = fields.Many2one(comodel_name="mbr.motorcycle.model", string="Mode", required=True)
+    # TODO: delete this field
     currency_id = fields.Many2one(
         comodel_name='res.currency',
         default=lambda self: self.env.user.company_id.currency_id,
         string='Currency',
         required=True
     )
+    rental_ids = fields.One2many(comodel_name="mbr.rental", inverse_name="motorcycle_id",
+                                 string="Rentals")
 
     # ------------------------------------------ CRUD Methods -------------------------------------
     @api.model

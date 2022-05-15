@@ -10,4 +10,19 @@
       </p>
     </field>
   </record>
+
+
+  <record id="mbr_customer_view_tree" model="ir.ui.view">
+    <field name="name">mbr.customer.tree</field>
+    <field name="model">mbr.customer</field>
+    <field name="arch" type="xml">
+      <tree string="Motorcycle">
+        <field name="full_name"/>
+        <field name="identification_id"/>
+        <field name="phone"/>
+        <field name="email"/>
+      </tree>
+    </field>
+  </record>
+
 </odoo>
