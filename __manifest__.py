@@ -14,6 +14,7 @@
     'data': [
         'security/ir.model.access.csv',
         'data/motorcycle_sequence_data.xml',
+        'data/rental_sequence_data.xml',
         'views/mbr_customer.xml',
         'views/mbr_motorcycle_model_views.xml',
         'views/mbr_motorcycle_category_views.xml',

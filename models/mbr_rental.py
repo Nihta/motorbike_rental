@@ -18,7 +18,7 @@ class MbrRental(models.Model):
     # --------------------------------------- Fields Declaration ----------------------------------
 
     # Basic -------
-    name = fields.Char(string='Rental ID', required=True)
+    name = fields.Char(string='Rental ID', readonly=True, copy=False)
     extra_info = fields.Text(string='Extra Info')
     discount = fields.Float(string='Discount', default=0.0)
     date_start = fields.Date(string='Start Date')
@@ -82,3 +82,9 @@ class MbrRental(models.Model):
                 return {
                     'domain': {'motorcycle_id': [('id', 'in', motor_available_ids)]},
                 }
+
+    # ------------------------------------------ CRUD Methods -------------------------------------
+    @api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code('mbr.rental')
+        return super(MbrRental, self).create(vals)
