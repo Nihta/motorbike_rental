@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+  <record id="mbr_translate_action" model="ir.actions.act_window">
+    <field name="name">Translate</field>
+    <field name="res_model">ir.translation</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[('module', '=', 'motorbike_rental')]</field>
+  </record>
+
   <!-- Menu root -->
   <menuitem name="Motorbike rental" id="mbr_menu_root"
             web_icon="motorbike_rental,static/description/icon.png"/>
@@ -31,5 +38,8 @@
               action="base.action_country_state"/>
   </menuitem>
 
+  <menuitem id="mbr_menu_translate" name="Translate" parent="mbr_motorcycle_configs_menu"
+            action="mbr_translate_action"
+  />
 </odoo>
 

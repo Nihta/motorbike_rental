@@ -13,6 +13,7 @@ class MbrRental(models.Model):
          'CHECK (discount >= 0 AND discount <= 100)',
          'Discount must be between 0 and 100'),
     ]
+    _order = "date_start desc"
 
     # --------------------------------------- Fields Declaration ----------------------------------
 
@@ -72,11 +73,12 @@ class MbrRental(models.Model):
         for rental in self:
             if rental.model_id and rental.date_start and rental.date_end:
                 rental.motorcycle_id = False
-                moto_active_ids = self.env['mbr.motorcycle'].search([
+                motor_available_ids = self.env['mbr.motorcycle'].search([
                     ('active', '=', True),
                     ('mode_id', '=', rental.model_id.id),
-                ]).mapped('id')
-                # TODO: find motorcycle available in the date range
+                ]).filtered(lambda moto: moto._is_available(rental.date_start, rental.date_end)) \
+                    .mapped('id')
+
                 return {
-                    'domain': {'motorcycle_id': [('id', 'in', moto_active_ids)]},
+                    'domain': {'motorcycle_id': [('id', 'in', motor_available_ids)]},
                 }

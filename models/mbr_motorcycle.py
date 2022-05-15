@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import odoo.exceptions
 from odoo import fields, models, api
 
 
@@ -32,6 +32,29 @@ class MbrMotorcycle(models.Model):
     )
     rental_ids = fields.One2many(comodel_name="mbr.rental", inverse_name="motorcycle_id",
                                  string="Rentals")
+
+    def _is_available(self, rd_start, rd_end):
+        """
+        Check if the motor is available in the given range
+        """
+        # TODO: research if this is the best way to do this
+        if len(self) > 1:
+            raise odoo.exceptions.UserError("This method is not implemented for multiple records")
+        for motor in self:
+            rentals = [(r.date_start, r.date_end) for r in motor.rental_ids]
+            len_rentals = len(rentals)
+            if len_rentals == 0:
+                return True
+            if len_rentals == 1 and rd_start < rd_end < rentals[0][0]:
+                return True
+            for i in range(len(rentals)):
+                cur_rental = rentals[i]
+                next_rental = rentals[i + 1] if i + 1 < len(rentals) else None
+                if next_rental:
+                    if cur_rental[1] < rd_start < rd_end < next_rental[0]:
+                        return True
+                elif cur_rental[1] < rd_start < rd_end:
+                    return True
 
     # ------------------------------------------ CRUD Methods -------------------------------------
     @api.model
