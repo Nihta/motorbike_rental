@@ -1,3 +1,3 @@
-# Hospital manager
+# Motorbike rental manager
 
 Odoo 15
