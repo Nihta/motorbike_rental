@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import fields, models, api
+from odoo.exceptions import UserError
 
 
 class MbrMotorcycleModel(models.Model):
@@ -19,7 +20,7 @@ class MbrMotorcycleModel(models.Model):
     name = fields.Char(string='Name', required=True)
     year = fields.Integer(string="Year")
     description = fields.Text(string="Description")
-    cc = fields.Integer(string="CC")
+    cc = fields.Integer(string="CC", required=True)
 
     # TODO: Now not used
     rent_cost_df_day = fields.Monetary(string="Rent cost default (day)")
@@ -38,3 +39,9 @@ class MbrMotorcycleModel(models.Model):
     currency_id = fields.Many2one(
         comodel_name='res.currency', string='Currency', required=True,
         default=lambda self: self.env.user.company_id.currency_id)
+
+    @api.constrains('price_ids')
+    def _constrain_price_ids(self):
+        for record in self:
+            if len(record.price_ids) == 0:
+                raise UserError('Price list must be not empty!')

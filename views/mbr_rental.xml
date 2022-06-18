@@ -4,14 +4,13 @@
   <record id="mbr_rental_action" model="ir.actions.act_window">
     <field name="name">Motorcycle rentals</field>
     <field name="res_model">mbr.rental</field>
-    <field name="view_mode">tree,kanban,form</field>
+    <field name="view_mode">tree,kanban,form,calendar</field>
     <field name="help" type="html">
       <p class="o_view_nocontent_smiling_face">
         No data to display.
       </p>
     </field>
   </record>
-
 
   <record id="mbr_rental_view_tree" model="ir.ui.view">
     <field name="name">mbr.rental.tree</field>
@@ -54,6 +53,9 @@
       <form>
         <header>
           <field name="state" widget="statusbar"/>
+          <button type="object" name="action_create_invoice" string="Create invoice"
+                  attrs="{'invisible': [('state', '!=', 'in_progress')]}"/>
+                  class="oe_highlight"/>
         </header>
         <sheet>
           <group>
@@ -81,4 +83,19 @@
   </record>
 
 
+  <record id="mbr_rental_view_calendar" model="ir.ui.view">
+    <field name="name">mbr.rental.calendar</field>
+    <field name="model">mbr.rental</field>
+    <field name="arch" type="xml">
+      <calendar
+        string="Rental"
+        date_start="date_start"
+        color="customer_id"
+        date_stop="date_end"
+      >
+        <field name="name"/>
+        <field name="customer_id"/>
+      </calendar>
+    </field>
+  </record>
 </odoo>

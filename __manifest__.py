@@ -9,7 +9,7 @@
     'license': 'OPL-1',
     'category': 'Uncategorized',
     'version': '0.1',
-    'depends': ['base'],
+    'depends': ['base', 'account'],
     'application': True,
     'data': [
         'security/ir.model.access.csv',

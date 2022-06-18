@@ -38,8 +38,9 @@
               action="base.action_country_state"/>
   </menuitem>
 
+  <!-- groups="base.group_no_one": show only dev mode -->
   <menuitem id="mbr_menu_translate" name="Translate" parent="mbr_motorcycle_configs_menu"
-            action="mbr_translate_action"
+            action="mbr_translate_action" groups="base.group_no_one"
   />
 </odoo>
 

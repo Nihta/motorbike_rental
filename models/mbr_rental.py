@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models, api
+from odoo import fields, models, api, Command
 
 
 class MbrRental(models.Model):
@@ -88,3 +88,36 @@ class MbrRental(models.Model):
     def create(self, vals):
         vals['name'] = self.env['ir.sequence'].next_by_code('mbr.rental')
         return super(MbrRental, self).create(vals)
+
+    def action_create_invoice(self):
+        self.ensure_one()
+
+        # TODO: this is first price
+        price = self.model_id.price_ids[0].price
+        if not price:
+            raise models.ValidationError("No price found for this model!")
+
+        # TODO: price not optimized
+        duration = (self.date_end - self.date_start).days + 1  # +1 because start date is included
+        total_amount = (price * duration) * (1 - self.discount / 100) * \
+                       (1 - self.motorcycle_id.discount / 100)
+
+        invoice_line_ids = [Command.create({
+            "name": f"{self.motorcycle_id.mode_id.name} - {self.customer_id.full_name} - [Từ {self.date_start} đến {self.date_end}]",
+            "quantity": 1.0,
+            "price_unit": total_amount,
+        })]
+        # add note account move
+        self.env["account.move"].create(
+            {
+                # "partner_id": rental.patient_id.partner_id.id,
+                "move_type": "out_invoice",
+                "invoice_date": fields.Date.context_today(self),
+                # "journal_id": journal.id,
+                'invoice_user_id': self.env.user.id,
+                # 'invoice_origin': self.patient_id.id,
+                "invoice_line_ids": invoice_line_ids,
+            }
+        )
+
+        self.write({'state': 'done'})
